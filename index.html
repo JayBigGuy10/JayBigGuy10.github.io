@@ -39,6 +39,13 @@
         }
         async function onloadstuff() {
             await sleep(100);
+            const inputBox = document.getElementById("userInput");
+            inputBox.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    setthestuff();;
+                }
+            });
+
             if (localStorage.getItem('user_name') != null && localStorage.getItem('user_instance') != null) {
                 var userDisplay = document.getElementById("userDisplay");
                 var shareValue = localStorage.getItem('user_name') + "@" + localStorage.getItem('user_instance');
