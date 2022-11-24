@@ -9,7 +9,12 @@
                 var userDisplay = document.getElementById("userDisplay");
                 var linkValue = window.location.href.split("/");
                 var linkValue2 = linkValue[linkValue.length-1].split("@");
-                var linkValue3 = localStorage.getItem('user_instance')+"/@"+linkValue2[1]+'@'+linkValue2[2];
+
+                if (linkValue2[2] == localStorage.getItem('user_instance')){
+                    var linkValue3 = localStorage.getItem('user_instance')+"/@"+linkValue2[1];
+                } else {
+                    var linkValue3 = localStorage.getItem('user_instance')+"/@"+linkValue2[1]+'@'+linkValue2[2];
+                }
 
                 userDisplay.href = "https://"+linkValue3;
                 userDisplay.textContent = linkValue3;
