@@ -16,6 +16,14 @@
                 localStorage.setItem('user_instance',linkValue[0]);
                 localStorage.setItem('user_name',linkValue[1])
             }
+            function onloadstuff(){
+                var userDisplay = document.getElementById("userDisplay");
+                var shareValue = localStorage.getItem('user_name')+"@"+localStorage.getItem('user_instance');
+                userDisplay.href = shareValue;
+                userDisplay.textContent = "mastofind.me/"+shareValue;
+                console.log(userInput);
+            }
+            window.onload = onloadstuff();
         </script>
 
         <h1>Find me on Mastodon at</h1>
