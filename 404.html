@@ -53,6 +53,13 @@
                 hiddenDIV.classList.add("hidden")
             }
 
+            const inputBox = document.getElementById("userInput");
+            inputBox.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    setthestuff();;
+                }
+            });
+
         }
         </script>
 <div class="wide">
