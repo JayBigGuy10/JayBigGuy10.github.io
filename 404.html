@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <script>
+        <script defer>
             function showStuff(){
                 var userDisplay = document.getElementById("userDisplay");
                 var linkValue = window.location.href.split("/");
@@ -13,6 +13,9 @@
 
                 userDisplay.href = linkValue3;
                 userDisplay.textContent = linkValue3;
+
+                console.log(linkValue);
+                console.log(linkValue2);
                 console.log(linkValue3);
                 // localStorage.getItem('user_instance')
             }
