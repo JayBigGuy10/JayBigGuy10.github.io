@@ -8,15 +8,16 @@
             function setthestuff(){
                 var userInput = document.getElementById("userInput").value;
                 var userDisplay = document.getElementById("userDisplay");
-                var linkValue = window.location.href+userInput;
-                userDisplay.href = linkValue;
-                userDisplay.textContent = linkValue;
+                var linkValue = userInput.split("/");
+                var shareValue = linkValue[1]+"@"+linkValue[0];
+                userDisplay.href = shareValue;
+                userDisplay.textContent = window.location.href+shareValue;
                 console.log(userInput);
             }
         </script>
 
         <h1>Find me on Mastodon at</h1>
-        <h1><a href="mastofind.me/@JayBigGuy10@mastodon.social" id="userDisplay">mastofind.me/@JayBigGuy10@mastodon.social</a></h1>
+        <h1><a href="mastofind.me" id="userDisplay">mastofind.me</a></h1>
         
         <div class="form-group">
             <span>https://</span>
