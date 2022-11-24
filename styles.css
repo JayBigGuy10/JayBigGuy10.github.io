@@ -9,6 +9,10 @@ a {
     color: #595aff;
 }
 
+.hidden {
+    visibility: collapse;
+}
+
 .wide {
     width: 100%;
 }

@@ -10,10 +10,20 @@
                 var linkValue = window.location.href.split("/");
                 var linkValue2 = linkValue[linkValue.length-1].split("@");
 
-                if (linkValue2[2] == localStorage.getItem('user_instance')){
+                if (linkValue2[2] === localStorage.getItem('user_instance')){
                     var linkValue3 = localStorage.getItem('user_instance')+"/@"+linkValue2[1];
+                    console.log("1");
+                } else if (localStorage.getItem('user_instance') === null) {
+                    var linkValue3 = 'First Enter Your Instance Below';
+                    console.log("2");
                 } else {
                     var linkValue3 = localStorage.getItem('user_instance')+"/@"+linkValue2[1]+'@'+linkValue2[2];
+                    console.log("3");
+                }
+
+                if (localStorage.getItem('user_instance') === null){
+                    var hiddenDIV = document.getElementById("hidden");
+                    hiddenDIV.classList.remove("hidden")
                 }
 
                 userDisplay.href = "https://"+linkValue3;
@@ -24,12 +34,36 @@
                 console.log(linkValue3);
             }
             window.onload = showStuff;
+
+            function setthestuff() {
+            var userInput = document.getElementById("userInput").value;
+            console.log(userInput);
+            var userDisplay = document.getElementById("userDisplay");
+            var linkValue = userInput.split("/");
+            var shareValue = linkValue[1] + "@" + linkValue[0];
+            if (userInput.length > 0){
+                
+                userDisplay.href = shareValue;
+                userDisplay.textContent = "mastofind.me/" + shareValue;
+                console.log(userInput);
+                localStorage.setItem('user_instance', linkValue[0]);
+                localStorage.setItem('user_name', linkValue[1]);
+                showStuff();
+                var hiddenDIV = document.getElementById("hidden");
+                hiddenDIV.classList.add("hidden")
+            }
+
+        }
         </script>
 <div class="wide">
         <h1>Find me on Mastodon at</h1>
         <h1><a href="mastofind.me" id="userDisplay">mastofind.me</a></h1>
 </div>
-<div class="button-groupie">
+<div class="button-groupie hidden" id="hidden">
+    <div class="form-group">
+        <span>https://</span>
+        <input class="form-field" type="text" placeholder="domain.tld/@you" spellcheck="false" id="userInput">
+    </div>
         <button class="btn" onclick="setthestuff()">
             <span>Set Instance Domain</span>
             <svg preserveAspectRatio="none" viewBox="0 0 132 45">
@@ -49,7 +83,7 @@
         </button>
 </div>
         <div>
-            <h2>What is mastofind.me?</h2>
+            <h2>What is <a href="https://mastofind.me">mastofind.me</a>?</h2>
             <h3>This website provides an easy way to link to your Mastodon profile for others, without other people ending
                 up on a different server from their own</h3>
             <h3>I.E it solves the problem of me sharing a <a
