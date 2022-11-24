@@ -1,6 +1,16 @@
-h1, h2, h3{
+h1, h2, h3, a{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+a {
+    color: #595aff;
+}
+
+.wide {
+    width: 100%;
 }
 
 /* set domain button */
@@ -24,14 +34,13 @@ h1, h2, h3{
     outline: none;
     cursor: pointer;
     font-size: 14px;
-    line-height: 21px;
     font-weight: 600;
     display: block;
     width:fit-content;
     text-align: center;
     border-radius: 7px;
     margin: 0 auto;
-    padding: 12px 0;
+    padding: 20px 10px;
   }
   .btn span {
     position: relative;
@@ -68,6 +77,7 @@ h1, h2, h3{
   .btn:hover {
     --spacing: 0;
     --duration: .45s;
+    --c-black: #00000000;
   }
 
 
@@ -184,16 +194,33 @@ h1, h2, h3{
     align-items: center;
     flex-direction: column;
     background: #eff3f5;
+    margin: 20px;
   }
   body .form-group {
-    max-width: 360px;
+    min-width: 360px;
   }
   body .form-group:not(:last-child) {
     margin-bottom: 32px;
   }
 
 @media (max-device-width: 480px) {
-    h1 {
-        font-size: 600%;
+    h1, span{
+        font-size: 400%;
     }
+
+    .form-group > span {
+        font-size: 400%;
+        line-height: unset;
+    }
+
+    .button-groupie {
+        width: 100%;
+    }
+
+    .form-field {
+        line-height: unset;
+        font-size: 400%;
+    }
+
+    
 }

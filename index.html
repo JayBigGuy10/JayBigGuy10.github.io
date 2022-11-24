@@ -9,14 +9,18 @@
     <script defer>
         function setthestuff() {
             var userInput = document.getElementById("userInput").value;
+            console.log(userInput);
             var userDisplay = document.getElementById("userDisplay");
             var linkValue = userInput.split("/");
             var shareValue = linkValue[1] + "@" + linkValue[0];
-            userDisplay.href = shareValue;
-            userDisplay.textContent = "mastofind.me/" + shareValue;
-            console.log(userInput);
-            localStorage.setItem('user_instance', linkValue[0]);
-            localStorage.setItem('user_name', linkValue[1])
+            if (userInput.length > 0){
+                
+                userDisplay.href = shareValue;
+                userDisplay.textContent = "mastofind.me/" + shareValue;
+                console.log(userInput);
+                localStorage.setItem('user_instance', linkValue[0]);
+                localStorage.setItem('user_name', linkValue[1]);
+            }
         }
         async function onloadstuff() {
             await sleep(100);
@@ -34,18 +38,18 @@
         }
         window.onload = onloadstuff();
     </script>
-    <div>
+    <div class="wide">
         <h1>Find me on Mastodon at</h1>
         <h1><a href="mastofind.me" id="userDisplay">mastofind.me</a></h1>
     </div>
-    <div>
+    <div class="button-groupie">
         <div class="form-group">
             <span>https://</span>
             <input class="form-field" type="text" placeholder="domain.tld/@username" spellcheck="false" id="userInput">
         </div>
 
         <button class="btn" onclick="setthestuff()">
-            <span>Set Username & Domain</span>
+            <span>Set Your Username & Domain</span>
             <svg preserveAspectRatio="none" viewBox="0 0 132 45">
                 <g clip-path="url(#clip)" filter="url(#goo-big)">
                     <circle class="top-left" cx="49.5" cy="-0.5" r="26.5" />
@@ -61,6 +65,7 @@
                 </defs>
             </svg>
         </button>
+
     </div>
     <div>
         <h2>What is mastofind.me?</h2>
