@@ -6,6 +6,14 @@
     <body>
         <script defer>
             function showStuff(){
+
+                const inputBox = document.getElementById("userInput");
+                inputBox.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        setthestuff();;
+                    }
+                });
+
                 var userDisplay = document.getElementById("userDisplay");
                 var linkValue = window.location.href.split("/");
                 var linkValue2 = linkValue[linkValue.length-1].split("@");
@@ -53,12 +61,7 @@
                 hiddenDIV.classList.add("hidden")
             }
 
-            const inputBox = document.getElementById("userInput");
-            inputBox.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    setthestuff();;
-                }
-            });
+            
 
         }
         </script>
