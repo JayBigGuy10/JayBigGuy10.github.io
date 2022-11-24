@@ -17,6 +17,11 @@ a {
     width: 100%;
 }
 
+img {
+    width: 30%;
+    align-self: center;
+}
+
 /* set domain button */
 
 :root {
@@ -224,6 +229,10 @@ a {
     .form-field {
         line-height: unset;
         font-size: 400%;
+    }
+
+    img {
+        width: 90%;
     }
 
     
