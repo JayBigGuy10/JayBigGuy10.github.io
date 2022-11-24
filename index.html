@@ -11,8 +11,10 @@
                 var linkValue = userInput.split("/");
                 var shareValue = linkValue[1]+"@"+linkValue[0];
                 userDisplay.href = shareValue;
-                userDisplay.textContent = window.location.href+shareValue;
+                userDisplay.textContent = "mastofind.me/"+shareValue;
                 console.log(userInput);
+                localStorage.setItem('user_instance',linkValue[0]);
+                localStorage.setItem('user_name',linkValue[1])
             }
         </script>
 
