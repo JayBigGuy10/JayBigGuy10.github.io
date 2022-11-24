@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <script>
+        <script defer>
             function setthestuff(){
                 var userInput = document.getElementById("userInput").value;
                 var userDisplay = document.getElementById("userDisplay");
@@ -16,12 +16,17 @@
                 localStorage.setItem('user_instance',linkValue[0]);
                 localStorage.setItem('user_name',linkValue[1])
             }
-            function onloadstuff(){
+            async function onloadstuff(){
+                await sleep(100);
                 var userDisplay = document.getElementById("userDisplay");
                 var shareValue = localStorage.getItem('user_name')+"@"+localStorage.getItem('user_instance');
+                console.log(shareValue);
                 userDisplay.href = shareValue;
                 userDisplay.textContent = "mastofind.me/"+shareValue;
                 console.log(userInput);
+            }
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
             }
             window.onload = onloadstuff();
         </script>
