@@ -4,17 +4,18 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6HEHXVJ98S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6HEHXVJ98S');
+    </script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6HEHXVJ98S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-6HEHXVJ98S');
-</script>
 
 <body>
     <script defer>
@@ -24,13 +25,16 @@
             var userDisplay = document.getElementById("userDisplay");
             var linkValue = userInput.split("/");
             var shareValue = linkValue[1] + "@" + linkValue[0];
-            if (userInput.length > 0){
-                
+            if (userInput.length > 0) {
+
                 userDisplay.href = shareValue;
                 userDisplay.textContent = "mastofind.me/" + shareValue;
                 console.log(userInput);
                 localStorage.setItem('user_instance', linkValue[0]);
                 localStorage.setItem('user_name', linkValue[1]);
+
+                globalUsername = localStorage.getItem('user_name');
+                globalDomain = localStorage.getItem('user_instance');
             }
         }
         async function onloadstuff() {
@@ -48,14 +52,17 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
         window.onload = onloadstuff();
+
+        let globalUsername = localStorage.getItem('user_name');
+        let globalDomain = localStorage.getItem('user_instance');
     </script>
 
 
 
-<img src="header.svg">
+    <img src="header.svg">
 
     <div class="wide">
-        
+
         <h1>Find yourself on Mastodon at</h1>
         <h1><a href="mastofind.me" id="userDisplay">mastofind.me</a></h1>
     </div>
