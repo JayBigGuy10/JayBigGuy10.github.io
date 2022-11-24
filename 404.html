@@ -9,7 +9,7 @@
                 var userDisplay = document.getElementById("userDisplay");
                 var linkValue = window.location.href.split("/");
                 var linkValue2 = linkValue[linkValue.length-1].split("@");
-                var linkValue3 = "mastodon.social"+linkValue2[0];
+                var linkValue3 = "mastodon.social/@"+linkValue2[1]+'@'+linkValue2[3];
 
                 userDisplay.href = linkValue3;
                 userDisplay.textContent = linkValue3;
