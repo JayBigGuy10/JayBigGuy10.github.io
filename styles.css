@@ -1,4 +1,4 @@
-h1 {
+h1, h2, h3{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
@@ -180,7 +180,7 @@ h1 {
     min-height: 100vh;
     font-family: "Mukta Malar", Arial;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     background: #eff3f5;
@@ -191,3 +191,9 @@ h1 {
   body .form-group:not(:last-child) {
     margin-bottom: 32px;
   }
+
+@media (max-device-width: 480px) {
+    h1 {
+        font-size: 600%;
+    }
+}

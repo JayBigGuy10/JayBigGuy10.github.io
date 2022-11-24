@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <script defer>
-            function setthestuff(){
-                var userInput = document.getElementById("userInput").value;
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script defer>
+        function setthestuff() {
+            var userInput = document.getElementById("userInput").value;
+            var userDisplay = document.getElementById("userDisplay");
+            var linkValue = userInput.split("/");
+            var shareValue = linkValue[1] + "@" + linkValue[0];
+            userDisplay.href = shareValue;
+            userDisplay.textContent = "mastofind.me/" + shareValue;
+            console.log(userInput);
+            localStorage.setItem('user_instance', linkValue[0]);
+            localStorage.setItem('user_name', linkValue[1])
+        }
+        async function onloadstuff() {
+            await sleep(100);
+            if (localStorage.getItem('user_name') != null && localStorage.getItem('user_instance') != null) {
                 var userDisplay = document.getElementById("userDisplay");
-                var linkValue = userInput.split("/");
-                var shareValue = linkValue[1]+"@"+linkValue[0];
-                userDisplay.href = shareValue;
-                userDisplay.textContent = "mastofind.me/"+shareValue;
-                console.log(userInput);
-                localStorage.setItem('user_instance',linkValue[0]);
-                localStorage.setItem('user_name',linkValue[1])
-            }
-            async function onloadstuff(){
-                await sleep(100);
-                var userDisplay = document.getElementById("userDisplay");
-                var shareValue = localStorage.getItem('user_name')+"@"+localStorage.getItem('user_instance');
+                var shareValue = localStorage.getItem('user_name') + "@" + localStorage.getItem('user_instance');
                 console.log(shareValue);
                 userDisplay.href = shareValue;
-                userDisplay.textContent = "mastofind.me/"+shareValue;
+                userDisplay.textContent = "mastofind.me/" + shareValue;
                 console.log(userInput);
             }
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            }
-            window.onload = onloadstuff();
-        </script>
-
+        }
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        window.onload = onloadstuff();
+    </script>
+    <div>
         <h1>Find me on Mastodon at</h1>
         <h1><a href="mastofind.me" id="userDisplay">mastofind.me</a></h1>
-        
+    </div>
+    <div>
         <div class="form-group">
             <span>https://</span>
             <input class="form-field" type="text" placeholder="domain.tld/@username" spellcheck="false" id="userInput">
@@ -56,26 +61,40 @@
                 </defs>
             </svg>
         </button>
+    </div>
+    <div>
+        <h2>What is mastofind.me?</h2>
+        <h3>This website provides an easy way to link to your Mastodon profile for others, without other people ending
+            up on a different server from their own</h3>
+        <h3>I.E it solves the problem of me sharing a <a
+                href="https://mastodon.social/@JayBigGuy10">mastodon.social/@JayBigGuy10</a> link to a user of
+            mstdn.social, spacey.space or any other server, where they would have to copy my @username@server to their
+            own app or website</h3>
+        <h3>Your server and username are stored entirely in your own local browser, and the source code can be viewed on
+            my github <a href="https://github.com/jaybigguy10/jaybigguy10.github.io">here</a></h3>
+    </div>
+    <svg width="0" height="0">
+        <defs>
+            <filter id="goo" x="-50%" width="200%" y="-50%" height="200%" color-interpolation-filters="sRGB">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
+                    result="cm" />
+            </filter>
+            <filter id="goo-light" x="-50%" width="200%" y="-50%" height="200%" color-interpolation-filters="sRGB">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.25" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
+                    result="cm" />
+            </filter>
+            <filter id="goo-big" x="-50%" width="200%" y="-50%" height="200%" color-interpolation-filters="sRGB">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
+                    result="cm" />
+            </filter>
+        </defs>
+    </svg>
 
- 
-<svg width="0" height="0">
-    <defs>
-        <filter id="goo" x="-50%" width="200%" y="-50%" height="200%" color-interpolation-filters="sRGB">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" result="cm" />
-        </filter>
-        <filter id="goo-light" x="-50%" width="200%" y="-50%" height="200%" color-interpolation-filters="sRGB">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1.25" result="blur" />
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" result="cm" />
-        </filter>
-        <filter id="goo-big" x="-50%" width="200%" y="-50%" height="200%" color-interpolation-filters="sRGB">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" result="cm" />
-        </filter>
-    </defs>
-</svg>
 
 
+</body>
 
-    </body>
 </html>
