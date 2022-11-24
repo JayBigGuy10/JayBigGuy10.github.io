@@ -4,13 +4,26 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <script>
+            function setthestuff(){
+                var userInput = document.getElementById("userInput").value;
+                var userDisplay = document.getElementById("userDisplay");
+                var linkValue = window.location.href+userInput;
+                userDisplay.href = linkValue;
+                userDisplay.textContent = linkValue;
+                console.log(userInput);
+            }
+        </script>
+
         <h1>Find me on Mastodon at</h1>
+        <h1><a href="mastofind.me/@JayBigGuy10@mastodon.social" id="userDisplay">mastofind.me/@JayBigGuy10@mastodon.social</a></h1>
+        
         <div class="form-group">
             <span>https://</span>
-            <input class="form-field" type="text" placeholder="domain.tld/@username">
+            <input class="form-field" type="text" placeholder="domain.tld/@username" spellcheck="false" id="userInput">
         </div>
 
-        <button class="btn">
+        <button class="btn" onclick="setthestuff()">
             <span>Set Instance Domain</span>
             <svg preserveAspectRatio="none" viewBox="0 0 132 45">
                 <g clip-path="url(#clip)" filter="url(#goo-big)">
@@ -45,6 +58,8 @@
         </filter>
     </defs>
 </svg>
+
+
 
     </body>
 </html>

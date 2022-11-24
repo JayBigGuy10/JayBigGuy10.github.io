@@ -10,7 +10,7 @@ h1 {
     --c-active-inner: #FFFFFF;
     --c-default: #D2D6E9;
     --c-default-dark: #C7CBDF;
-    --c-black: #1B1B22;
+    --c-black: #000000;
   }
   
   .btn {
@@ -73,10 +73,10 @@ h1 {
 
 /*input domain box */  
 :root {
-    --input-color: black;
+    --input-color: #000;
     --input-border: #595aff;
     --input-background: #fff;
-    --input-placeholder: #CBD1DC;
+    --input-placeholder: #898c92;
     --input-border-focus: #595aff;
     --group-color: white;
     --group-border: var(--input-border);
@@ -95,7 +95,6 @@ h1 {
     font-weight: 500;
     font-family: inherit;
     border-radius: 6px;
-    -webkit-appearance: none;
     color: var(--input-color);
     border: 1px solid var(--input-border);
     background: var(--input-background);
